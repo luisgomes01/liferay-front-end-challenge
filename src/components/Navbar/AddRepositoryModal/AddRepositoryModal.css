@@ -1,0 +1,13 @@
+.modal-content {
+  width: 450px;
+  height: 250px;
+}
+
+.modal-body label span {
+  color: #b95000;
+}
+
+.modal-body input {
+  margin-top: 10px;
+  width: 400px;
+}
