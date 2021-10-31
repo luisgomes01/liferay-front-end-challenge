@@ -1,0 +1,22 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  min-height: 80vh;
+  margin-top: 100px;
+}
+
+main h3 {
+  margin-top: 25px;
+  font-weight: 700;
+  font: #272833;
+}
+
+main p {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 400;
+  color: #6b6c7e;
+}
