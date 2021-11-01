@@ -1,14 +1,21 @@
-import { BsPlusSquareFill } from "react-icons/bs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { BsPlusSquareFill } from "react-icons/bs";
 import "./AddRepositoryModal.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import { addRepository } from "../../../api/AddRepository";
+import { getRepository } from "../../../api/repository";
+
 export default function AddRepositoryModal() {
   const [showModal, setShowModal] = useState(false);
+  const [urlEnding, setUrlEnding] = useState("");
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
+  useEffect(() => {
+    addRepository();
+  }, []);
   return (
     <div className="add-repository">
       <button className="reset-btn-style" onClick={openModal}>
@@ -23,14 +30,19 @@ export default function AddRepositoryModal() {
             Repository <span>*</span>
           </label>
           <br />
-          <input type="text" required></input>
+          <input
+            type="text"
+            placeholder="format: user/repository"
+            value={urlEnding}
+            required
+          ></input>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={closeModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={closeModal}>
-            Save Changes
+          <Button variant="primary" onClick={(closeModal, getRepository)}>
+            Add repository
           </Button>
         </Modal.Footer>
       </Modal>
