@@ -1,21 +1,23 @@
 import { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { BsPlusSquareFill } from "react-icons/bs";
-import "./AddRepositoryModal.css";
+import "./AddRepositoryDropdown.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useRepositories } from "../../../context/context";
 
-export default function AddRepositoryModal() {
+export default function AddRepositoryDropdown() {
   const [showModal, setShowModal] = useState(false);
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
   const { searchRepository, urlEnding, setUrlEnding } = useRepositories();
+
   return (
     <div className="add-repository">
       <button className="reset-btn-style" onClick={openModal}>
         <BsPlusSquareFill size={26} color="#0b5fff" />
       </button>
+
       <Modal show={showModal} onHide={closeModal}>
         <Modal.Header closeButton>
           <Modal.Title>New repository</Modal.Title>

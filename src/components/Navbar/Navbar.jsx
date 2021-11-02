@@ -1,6 +1,6 @@
 import NavbarDropdown from "./NavbarDropdown/NavbarDropdown";
 import NavbarInput from "./NavbarInput/NavbarInput";
-import AddRepositoryModal from "./AddRepositoryModal/AddRepositoryModal";
+import AddRepositoryDropdown from "./AddRepositoryDropdown/AddRepositoryDropdown";
 
 import { AiFillGithub, AiOutlineStar, AiFillAppstore } from "react-icons/ai";
 import { BsFillHddStackFill, BsPlusSquareFill } from "react-icons/bs";
@@ -35,7 +35,7 @@ export default function Navbar() {
               <AiFillAppstore size={20} />
             </li>
             <li>
-              <AddRepositoryModal />
+              <AddRepositoryDropdown />
             </li>
             {/* <li>
               <BsFillHddStackFill />

@@ -1,0 +1,14 @@
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu {
+  position: relative;
+  width: 50rem;
+  height: 20rem;
+  padding: 50px;
+}
+
+.form-header {
+  font-size: 20px;
+}

@@ -9,6 +9,7 @@ export function RepositoryProvider({ children }) {
   const searchRepository = async () => {
     const resp = await api.getRepository(urlEnding);
     setRepositoriesArray([...repositoriesArray, resp]);
+    setUrlEnding("");
     return resp.data;
   };
 
