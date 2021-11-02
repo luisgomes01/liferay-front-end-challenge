@@ -1,8 +1,8 @@
-import Api from './index'
+import api from './index'
 
 export const getRepository = async (urlEnding) => {
-  const resp = await Api.get(`/repos/${urlEnding}`)
-  console.log(resp);
+  const resp = await api.get(`/repos/${urlEnding}`)
+  return resp.data;
 };
 
 // "https://api.github.com/repos/{owner}/{repo}"
