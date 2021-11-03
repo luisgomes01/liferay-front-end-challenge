@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+
 export default function DeleteModal() {
   const [show, setShow] = useState(false);
 
@@ -16,7 +17,7 @@ export default function DeleteModal() {
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={handleClose}>
+        <Button variant="primary" onClick={{ handleClose }}>
           Save Changes
         </Button>
       </Modal.Footer>

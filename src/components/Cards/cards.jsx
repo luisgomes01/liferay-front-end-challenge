@@ -8,17 +8,18 @@ import { useState } from "react";
 
 import "./cards.css";
 export default function Cards() {
-  const { repositoriesArray } = useRepositories();
+  const { repositoriesArray, setRepositoriesArray, deleteRepository } =
+    useRepositories();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
     <div className="cards-container">
-      {repositoriesArray.map((repository, key) => (
+      {repositoriesArray.map((repository, id) => (
         <Card
           style={{ width: "20rem", height: "20rem", maxWidth: "23rem" }}
-          key={key}
+          key={id}
         >
           <div className="card-header">
             <Card.Img src={liferayLogo} />
@@ -56,7 +57,13 @@ export default function Cards() {
                 <Button variant="secondary" onClick={handleClose}>
                   Cancel
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    handleClose();
+                    deleteRepository(repository.id);
+                  }}
+                >
                   Delete
                 </Button>
               </Modal.Footer>

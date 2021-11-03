@@ -2,7 +2,7 @@ import { createContext, useState, useContext } from "react";
 import * as api from "../api/repository";
 export const RepoContext = createContext({});
 
-export function RepositoryProvider({ children }) {
+export default function RepositoryProvider({ children }) {
   const [repositoriesArray, setRepositoriesArray] = useState([]);
   const [urlEnding, setUrlEnding] = useState("");
 
@@ -13,6 +13,10 @@ export function RepositoryProvider({ children }) {
     return resp.data;
   };
 
+  const deleteRepository = (repo) => {
+    setRepositoriesArray(repositoriesArray.filter((e) => e.id !== repo));
+  };
+
   return (
     <RepoContext.Provider
       value={{
@@ -21,6 +25,7 @@ export function RepositoryProvider({ children }) {
         urlEnding,
         setUrlEnding,
         searchRepository,
+        deleteRepository,
       }}
     >
       {children}
@@ -28,5 +33,3 @@ export function RepositoryProvider({ children }) {
   );
 }
 export const useRepositories = () => useContext(RepoContext);
-
-export default RepositoryProvider;
